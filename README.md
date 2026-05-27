@@ -1,0 +1,1 @@
+# Invididualka_bankomat
