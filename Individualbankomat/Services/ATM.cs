@@ -6,8 +6,8 @@ using AtmSimulation.Storage;
 namespace AtmSimulation.Services {
   public class ATM {
     private static ATM _instance;
-    private List<Transaction> _transactions;
-    private FileStorage _fileStorage;
+    private readonly List<Transaction> _transactions;
+    private readonly FileStorage _fileStorage;
 
     private ATM() {
       _fileStorage = new FileStorage();
@@ -28,7 +28,12 @@ namespace AtmSimulation.Services {
     }
 
     public decimal Balance { get; private set; }
-    public IReadOnlyList<Transaction> Transactions => _transactions;
+
+    public IReadOnlyList<Transaction> Transactions {
+      get {
+        return _transactions;
+      }
+    }
 
     public void Deposit(decimal amount) {
       if (amount <= 0m) {
@@ -79,7 +84,7 @@ namespace AtmSimulation.Services {
 
       for (int transactionIndex = 0; transactionIndex < transactionCount; transactionIndex++) {
         Transaction currentTransaction = _transactions[transactionIndex];
-        Console.WriteLine($"{currentTransaction.timestamp:yyyy-MM-dd HH:mm:ss} | {currentTransaction.type} | {currentTransaction.amount} RUB | Balance: {currentTransaction.balanceAfter} RUB");
+        Console.WriteLine($"{currentTransaction.Timestamp:yyyy-MM-dd HH:mm:ss} | {currentTransaction.Type} | {currentTransaction.Amount} RUB | Balance: {currentTransaction.BalanceAfter} RUB");
       }
     }
   }
