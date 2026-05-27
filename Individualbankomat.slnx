@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Элементы решения/">
+    <File Path=".editorconfig" />
+    <File Path="Settings.StyleCop.json" />
+  </Folder>
+  <Project Path="Individualbankomat/Individualbankomat.csproj" />
+</Solution>
