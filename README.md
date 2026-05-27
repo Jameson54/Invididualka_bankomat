@@ -133,6 +133,7 @@ Your choice:
 Пример вывода счёта
 
 ```
+```
 === ATM SIMULATION ===
 Welcome!
 
@@ -169,11 +170,11 @@ Current balance: 1300 RUB.
 Пример истории операций
 
 ```
+```
 === Transaction History ===
 2026-05-27 14:30:15 | Deposit | 500 RUB | Balance: 1500 RUB
 2026-05-27 14:31:22 | Withdrawal | 200 RUB | Balance: 1300 RUB
 ```
-
 
 История разработки (GitHub Flow)
 
