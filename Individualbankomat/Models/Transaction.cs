@@ -2,6 +2,8 @@
 
 namespace AtmSimulation.Models {
   public class Transaction {
+    private const char FileSeparator = '|';
+
     public Transaction(string type, decimal amount, decimal balanceAfter) {
       Timestamp = DateTime.Now;
       Type = type;
@@ -10,11 +12,16 @@ namespace AtmSimulation.Models {
     }
 
     public static Transaction FromFileString(string line) {
-      string[] parts = line.Split('|');
+      string[] parts = line.Split(FileSeparator);
+
+      const int typeIndex = 1;
+      const int amountIndex = 2;
+      const int balanceAfterIndex = 3;
+
       return new Transaction(
-        parts[1],
-        decimal.Parse(parts[2]),
-        decimal.Parse(parts[3])) {
+        parts[typeIndex],
+        decimal.Parse(parts[amountIndex]),
+        decimal.Parse(parts[balanceAfterIndex])) {
         Timestamp = DateTime.Parse(parts[0])
       };
     }
